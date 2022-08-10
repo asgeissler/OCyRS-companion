@@ -1,0 +1,252 @@
+motif	expressed.in.genomes	term	ortholog	pathways
+K02863_upstream.fna.motif.h1_1.h1_3	9	K02863	RP-L1, MRPL1, rplA; large subunit ribosomal protein L1	Ribosome; 
+K02906_upstream.fna.motif.h2_5	7	K02906	RP-L3, MRPL3, rplC; large subunit ribosomal protein L3	Ribosome; 
+K03797_upstream.fna.motif.h2_1	5	K03797	E3.4.21.102, prc, ctpA; carboxyl-terminal processing protease [EC:3.4.21.102]	
+K02836_upstream.fna.motif.h1_1	4	K02836	prfB; peptide chain release factor 2	
+K02906_upstream.fna.motif.h2_2	4	K02906	RP-L3, MRPL3, rplC; large subunit ribosomal protein L3	Ribosome; 
+K02931_upstream.fna.motif.h1_1	4	K02931	RP-L5, MRPL5, rplE; large subunit ribosomal protein L5	Ribosome; 
+K04485_upstream.fna.motif.h1_1	4	K04485	radA, sms; DNA repair protein RadA/Sms	
+K04485_upstream.fna.motif.h2_3	4	K04485	radA, sms; DNA repair protein RadA/Sms	
+K19002_upstream.fna.motif.h1_4	4	K19002	mgs, bgsB; 1,2-diacylglycerol 3-alpha-glucosyltransferase [EC:2.4.1.337]	Teichoic acid biosynthesis; ; Glycerolipid metabolism; Metabolic pathways
+K00215_upstream.fna.motif.h1_4.h2_2.h2_3	3	K00215	dapB; 4-hydroxy-tetrahydrodipicolinate reductase [EC:1.17.1.8]	Monobactam biosynthesis; ; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Biosynthesis of amino acids
+K00436_upstream.fna.motif.h1_4.h2_2	3	K00436	hoxH; NAD-reducing hydrogenase large subunit [EC:1.12.1.2]	
+K00436_upstream.fna.motif.h2_1	3	K00436	hoxH; NAD-reducing hydrogenase large subunit [EC:1.12.1.2]	
+K01082_upstream.fna.motif.h1_5	3	K01082	cysQ, MET22, BPNT1; 3'(2'), 5'-bisphosphate nucleotidase [EC:3.1.3.7]	Sulfur metabolism; ; Metabolic pathways; Microbial metabolism in diverse environments
+K02221_upstream.fna.motif.h2_1	3	K02221	yggT; YggT family protein	
+K02233_downstream.fna.motif.h1_4.h2_2.h1_5	3	K02233	E2.7.8.26, cobS, cobV; adenosylcobinamide-GDP ribazoletransferase [EC:2.7.8.26]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of cofactors
+K02341_downstream.fna.motif.h2_1.h2_2.h1_2	3	K02341	holB; DNA polymerase III subunit delta' [EC:2.7.7.7]	DNA replication; ; Mismatch repair; Homologous recombination
+K02835_downstream.fna.motif.h1_3	3	K02835	prfA, MTRF1, MRF1; peptide chain release factor 1	
+K03320_upstream.fna.motif.h1_3	3	K03320	amt, AMT, MEP; ammonium transporter, Amt family	
+K03650_upstream.fna.motif.h1_1.h2_5.h2_1.h2_4	3	K03650	mnmE, trmE, MSS1; tRNA modification GTPase [EC:3.6.-.-]	
+K05584_upstream.fna.motif.h2_1.h2_2.h1_2	3	K05584	ndhM; NAD(P)H-quinone oxidoreductase subunit M [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K06864_upstream.fna.motif.h2_1.h2_2.h2_3	3	K06864	larE; pyridinium-3,5-biscarboxylic acid mononucleotide sulfurtransferase [EC:4.4.1.37]	
+K06872_downstream.fna.motif.h1_5	3	K06872	K06872; uncharacterized protein	
+K21703_upstream.fna.motif.h2_1	3	K21703	cbbR, cmpR, ndhR; LysR family transcriptional regulator, low CO2-responsive transcriptional regulator	
+K00133_upstream.fna.motif.h1_3	2	K00133	asd; aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]	Glycine, serine and threonine metabolism; ; Monobactam biosynthesis; Cysteine and methionine metabolism; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K00133_upstream.fna.motif.h2_5	2	K00133	asd; aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]	Glycine, serine and threonine metabolism; ; Monobactam biosynthesis; Cysteine and methionine metabolism; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K00161_downstream.fna.motif.h2_1	2	K00161	PDHA, pdhA; pyruvate dehydrogenase E1 component alpha subunit [EC:1.2.4.1]	Glycolysis / Gluconeogenesis; ; Citrate cycle (TCA cycle); Pyruvate metabolism; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; HIF-1 signaling pathway; Glucagon signaling pathway; Central carbon metabolism in cancer; Diabetic cardiomyopathy
+K00215_upstream.fna.motif.h1_2.h2_1	2	K00215	dapB; 4-hydroxy-tetrahydrodipicolinate reductase [EC:1.17.1.8]	Monobactam biosynthesis; ; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Biosynthesis of amino acids
+K00215_upstream.fna.motif.h1_5.h2_5	2	K00215	dapB; 4-hydroxy-tetrahydrodipicolinate reductase [EC:1.17.1.8]	Monobactam biosynthesis; ; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Biosynthesis of amino acids
+K00297_downstream.fna.motif.h1_1	2	K00297	metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]	One carbon pool by folate; ; Carbon fixation pathways in prokaryotes; Metabolic pathways; Microbial metabolism in diverse environments; Carbon metabolism
+K00297_downstream.fna.motif.h2_2.h2_3	2	K00297	metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]	One carbon pool by folate; ; Carbon fixation pathways in prokaryotes; Metabolic pathways; Microbial metabolism in diverse environments; Carbon metabolism
+K00297_upstream.fna.motif.h1_1.h1_3	2	K00297	metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]	One carbon pool by folate; ; Carbon fixation pathways in prokaryotes; Metabolic pathways; Microbial metabolism in diverse environments; Carbon metabolism
+K00297_upstream.fna.motif.h2_1	2	K00297	metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]	One carbon pool by folate; ; Carbon fixation pathways in prokaryotes; Metabolic pathways; Microbial metabolism in diverse environments; Carbon metabolism
+K00311_upstream.fna.motif.h1_3.h1_4	2	K00311	ETFDH; electron-transferring-flavoprotein dehydrogenase [EC:1.5.5.1]	
+K00324_upstream.fna.motif.h2_1	2	K00324	pntA; H+-translocating NAD(P) transhydrogenase subunit alpha [EC:1.6.1.2 7.1.1.1]	Nicotinate and nicotinamide metabolism; ; Metabolic pathways
+K00688_upstream.fna.motif.h2_2	2	K00688	PYG, glgP; glycogen phosphorylase [EC:2.4.1.1]	Starch and sucrose metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biofilm formation - Escherichia coli; Necroptosis; Insulin signaling pathway; Glucagon signaling pathway; Insulin resistance
+K00791_upstream.fna.motif.h1_4	2	K00791	miaA, TRIT1; tRNA dimethylallyltransferase [EC:2.5.1.75]	Zeatin biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K00940_downstream.fna.motif.h1_5	2	K00940	ndk, NME; nucleoside-diphosphate kinase [EC:2.7.4.6]	Purine metabolism; ; Pyrimidine metabolism; Drug metabolism - other enzymes; Metabolic pathways; Biosynthesis of secondary metabolites; Nucleotide metabolism; Biosynthesis of cofactors; MAPK signaling pathway - plant
+K00940_downstream.fna.motif.h2_1	2	K00940	ndk, NME; nucleoside-diphosphate kinase [EC:2.7.4.6]	Purine metabolism; ; Pyrimidine metabolism; Drug metabolism - other enzymes; Metabolic pathways; Biosynthesis of secondary metabolites; Nucleotide metabolism; Biosynthesis of cofactors; MAPK signaling pathway - plant
+K00995_downstream.fna.motif.h1_3	2	K00995	pgsA, PGS1; CDP-diacylglycerol---glycerol-3-phosphate 3-phosphatidyltransferase [EC:2.7.8.5]	Glycerophospholipid metabolism; ; Metabolic pathways
+K01193_downstream.fna.motif.h1_2.h2_4	2	K01193	INV, sacA; beta-fructofuranosidase [EC:3.2.1.26]	Galactose metabolism; ; Starch and sucrose metabolism; Metabolic pathways; Biosynthesis of secondary metabolites
+K01251_upstream.fna.motif.h1_4	2	K01251	AHCY, ahcY; adenosylhomocysteinase [EC:3.13.2.1]	Cysteine and methionine metabolism; ; Metabolic pathways
+K01356_upstream.fna.motif.h1_5	2	K01356	lexA; repressor LexA [EC:3.4.21.88]	
+K01414_downstream.fna.motif.h2_1.h2_4	2	K01414	prlC; oligopeptidase A [EC:3.4.24.70]	
+K01437_downstream.fna.motif.h1_1.h2_1.h1_4	2	K01437	ASPA, aspA; aspartoacylase [EC:3.5.1.15]	Alanine, aspartate and glutamate metabolism; ; Histidine metabolism; Metabolic pathways
+K01437_upstream.fna.motif.h1_4.h2_1.h1_2	2	K01437	ASPA, aspA; aspartoacylase [EC:3.5.1.15]	Alanine, aspartate and glutamate metabolism; ; Histidine metabolism; Metabolic pathways
+K01465_upstream.fna.motif.h2_1	2	K01465	URA4, pyrC; dihydroorotase [EC:3.5.2.3]	Pyrimidine metabolism; ; Metabolic pathways; Biosynthesis of cofactors
+K01524_upstream.fna.motif.h1_2	2	K01524	ppx-gppA; exopolyphosphatase / guanosine-5'-triphosphate,3'-diphosphate pyrophosphatase [EC:3.6.1.11 3.6.1.40]	Purine metabolism; ; Metabolic pathways
+K01601_downstream.fna.motif.h1_2	2	K01601	rbcL, cbbL; ribulose-bisphosphate carboxylase large chain [EC:4.1.1.39]	Glyoxylate and dicarboxylate metabolism; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism
+K01652_upstream.fna.motif.h1_1	2	K01652	E2.2.1.6L, ilvB, ilvG, ilvI; acetolactate synthase I/II/III large subunit [EC:2.2.1.6]	Valine, leucine and isoleucine biosynthesis; ; Butanoate metabolism; C5-Branched dibasic acid metabolism; Pantothenate and CoA biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K01662_downstream.fna.motif.h2_2.h2_3.h2_1.h2_4	2	K01662	dxs; 1-deoxy-D-xylulose-5-phosphate synthase [EC:2.2.1.7]	Thiamine metabolism; ; Terpenoid backbone biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites
+K01687_downstream.fna.motif.h1_4.h2_2.h2_3	2	K01687	ilvD; dihydroxy-acid dehydratase [EC:4.2.1.9]	Valine, leucine and isoleucine biosynthesis; ; Pantothenate and CoA biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K01754_upstream.fna.motif.h1_5	2	K01754	E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]	Glycine, serine and threonine metabolism; ; Valine, leucine and isoleucine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Carbon metabolism; Biosynthesis of amino acids
+K01807_downstream.fna.motif.h1_3	2	K01807	rpiA; ribose 5-phosphate isomerase A [EC:5.3.1.6]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K01807_downstream.fna.motif.h1_4	2	K01807	rpiA; ribose 5-phosphate isomerase A [EC:5.3.1.6]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K01807_downstream.fna.motif.h1_5	2	K01807	rpiA; ribose 5-phosphate isomerase A [EC:5.3.1.6]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K01807_downstream.fna.motif.h2_2.h2_3	2	K01807	rpiA; ribose 5-phosphate isomerase A [EC:5.3.1.6]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K01870_downstream.fna.motif.h2_2	2	K01870	IARS, ileS; isoleucyl-tRNA synthetase [EC:6.1.1.5]	Aminoacyl-tRNA biosynthesis; 
+K01889_upstream.fna.motif.h1_1	2	K01889	FARSA, pheS; phenylalanyl-tRNA synthetase alpha chain [EC:6.1.1.20]	Aminoacyl-tRNA biosynthesis; 
+K01895_downstream.fna.motif.h1_2.h2_1	2	K01895	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]	Glycolysis / Gluconeogenesis; ; Pyruvate metabolism; Glyoxylate and dicarboxylate metabolism; Propanoate metabolism; Methane metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism
+K01895_upstream.fna.motif.h1_5.h2_1	2	K01895	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]	Glycolysis / Gluconeogenesis; ; Pyruvate metabolism; Glyoxylate and dicarboxylate metabolism; Propanoate metabolism; Methane metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism
+K01961_downstream.fna.motif.h1_2	2	K01961	accC; acetyl-CoA carboxylase, biotin carboxylase subunit [EC:6.4.1.2 6.3.4.14]	Fatty acid biosynthesis; ; Pyruvate metabolism; Propanoate metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Fatty acid metabolism
+K01961_downstream.fna.motif.h1_4.h2_4	2	K01961	accC; acetyl-CoA carboxylase, biotin carboxylase subunit [EC:6.4.1.2 6.3.4.14]	Fatty acid biosynthesis; ; Pyruvate metabolism; Propanoate metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Fatty acid metabolism
+K02033_upstream.fna.motif.h1_3	2	K02033	ABC.PE.P; peptide/nickel transport system permease protein	Quorum sensing; 
+K02078_upstream.fna.motif.h1_1	2	K02078	acpP; acyl carrier protein	Biosynthesis of various antibiotics; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K02094_upstream.fna.motif.h1_2.h1_4	2	K02094	apcC; phycobilisome core linker protein	Photosynthesis - antenna proteins; ; Metabolic pathways
+K02217_downstream.fna.motif.h2_2	2	K02217	ftnA, ftn; ferritin [EC:1.16.3.2]	
+K02221_downstream.fna.motif.h2_1	2	K02221	yggT; YggT family protein	
+K02294_downstream.fna.motif.h2_4	2	K02294	crtR; beta-carotene hydroxylase [EC:1.14.13.-]	Carotenoid biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K02313_downstream.fna.motif.h2_1	2	K02313	dnaA; chromosomal replication initiator protein	Two-component system; ; Cell cycle - Caulobacter
+K02435_downstream.fna.motif.h1_5.h2_1	2	K02435	gatC, GATC; aspartyl-tRNA(Asn)/glutamyl-tRNA(Gln) amidotransferase subunit C [EC:6.3.5.6 6.3.5.7]	Aminoacyl-tRNA biosynthesis; ; Metabolic pathways
+K02435_downstream.fna.motif.h2_2.h2_4.h1_3	2	K02435	gatC, GATC; aspartyl-tRNA(Asn)/glutamyl-tRNA(Gln) amidotransferase subunit C [EC:6.3.5.6 6.3.5.7]	Aminoacyl-tRNA biosynthesis; ; Metabolic pathways
+K02668_downstream.fna.motif.h1_5	2	K02668	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]	Two-component system; 
+K02717_downstream.fna.motif.h2_1	2	K02717	psbP; photosystem II oxygen-evolving enhancer protein 2	Photosynthesis; ; Metabolic pathways
+K02717_upstream.fna.motif.h1_5.h2_1.h2_2.h2_4.h1_4	2	K02717	psbP; photosystem II oxygen-evolving enhancer protein 2	Photosynthesis; ; Metabolic pathways
+K02888_upstream.fna.motif.h2_4	2	K02888	RP-L21, MRPL21, rplU; large subunit ribosomal protein L21	Ribosome; 
+K02906_upstream.fna.motif.h2_1	2	K02906	RP-L3, MRPL3, rplC; large subunit ribosomal protein L3	Ribosome; 
+K02990_upstream.fna.motif.h1_2.h2_1	2	K02990	RP-S6, MRPS6, rpsF; small subunit ribosomal protein S6	Ribosome; 
+K03075_downstream.fna.motif.h1_1	2	K03075	secG; preprotein translocase subunit SecG	Quorum sensing; ; Protein export; Bacterial secretion system
+K03075_downstream.fna.motif.h2_2.h2_3.h2_4	2	K03075	secG; preprotein translocase subunit SecG	Quorum sensing; ; Protein export; Bacterial secretion system
+K03075_downstream.fna.motif.h2_5	2	K03075	secG; preprotein translocase subunit SecG	Quorum sensing; ; Protein export; Bacterial secretion system
+K03168_upstream.fna.motif.h2_4	2	K03168	topA; DNA topoisomerase I [EC:5.6.2.1]	
+K03181_downstream.fna.motif.h1_3.h1_5.h1_1	2	K03181	ubiC; chorismate lyase [EC:4.1.3.40]	Ubiquinone and other terpenoid-quinone biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K03183_upstream.fna.motif.h1_1	2	K03183	ubiE; demethylmenaquinone methyltransferase / 2-methoxy-6-polyprenyl-1,4-benzoquinol methylase [EC:2.1.1.163 2.1.1.201]	Ubiquinone and other terpenoid-quinone biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K03183_upstream.fna.motif.h1_4	2	K03183	ubiE; demethylmenaquinone methyltransferase / 2-methoxy-6-polyprenyl-1,4-benzoquinol methylase [EC:2.1.1.163 2.1.1.201]	Ubiquinone and other terpenoid-quinone biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K03320_upstream.fna.motif.h2_2	2	K03320	amt, AMT, MEP; ammonium transporter, Amt family	
+K03424_upstream.fna.motif.h1_1	2	K03424	tatD; TatD DNase family protein [EC:3.1.21.-]	
+K03428_downstream.fna.motif.h1_3.h2_1	2	K03428	bchM, chlM; magnesium-protoporphyrin O-methyltransferase [EC:2.1.1.11]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K03470_downstream.fna.motif.h2_1.h2_3	2	K03470	rnhB; ribonuclease HII [EC:3.1.26.4]	DNA replication; 
+K03501_downstream.fna.motif.h2_2	2	K03501	gidB, rsmG; 16S rRNA (guanine527-N7)-methyltransferase [EC:2.1.1.170]	
+K03555_downstream.fna.motif.h1_3.h2_2	2	K03555	mutS; DNA mismatch repair protein MutS	Mismatch repair; 
+K03555_upstream.fna.motif.h2_1	2	K03555	mutS; DNA mismatch repair protein MutS	Mismatch repair; 
+K03631_upstream.fna.motif.h1_5.h2_2.h2_1	2	K03631	recN; DNA repair protein RecN (Recombination protein N)	
+K03665_upstream.fna.motif.h1_2.h2_1	2	K03665	hflX; GTPase	
+K03727_downstream.fna.motif.h1_3.h2_4	2	K03727	helY; ATP-dependent RNA helicase HelY [EC:3.6.4.-]	
+K03727_downstream.fna.motif.h2_3	2	K03727	helY; ATP-dependent RNA helicase HelY [EC:3.6.4.-]	
+K03980_upstream.fna.motif.h1_2.h2_1	2	K03980	murJ, mviN; putative peptidoglycan lipid II flippase	
+K04075_upstream.fna.motif.h2_3.h2_4.h1_5.h2_5	2	K04075	tilS, mesJ; tRNA(Ile)-lysidine synthase [EC:6.3.4.19]	
+K04485_downstream.fna.motif.h1_5.h2_1	2	K04485	radA, sms; DNA repair protein RadA/Sms	
+K04485_upstream.fna.motif.h1_3	2	K04485	radA, sms; DNA repair protein RadA/Sms	
+K04485_upstream.fna.motif.h1_4	2	K04485	radA, sms; DNA repair protein RadA/Sms	
+K04518_upstream.fna.motif.h1_2.h1_5	2	K04518	pheA2; prephenate dehydratase [EC:4.2.1.51]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids
+K05584_upstream.fna.motif.h1_1	2	K05584	ndhM; NAD(P)H-quinone oxidoreductase subunit M [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K05585_upstream.fna.motif.h1_2.h2_2.h1_1	2	K05585	ndhN; NAD(P)H-quinone oxidoreductase subunit N [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K05585_upstream.fna.motif.h2_3.h2_4	2	K05585	ndhN; NAD(P)H-quinone oxidoreductase subunit N [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K05592_upstream.fna.motif.h1_3.h1_4.h2_1	2	K05592	deaD, cshA; ATP-dependent RNA helicase DeaD [EC:3.6.4.13]	RNA degradation; 
+K06864_downstream.fna.motif.h1_3.h2_3	2	K06864	larE; pyridinium-3,5-biscarboxylic acid mononucleotide sulfurtransferase [EC:4.4.1.37]	
+K07037_downstream.fna.motif.h1_5	2	K07037	pgpH; cyclic-di-AMP phosphodiesterase PgpH [EC:3.1.4.-]	
+K07037_upstream.fna.motif.h1_3.h2_1	2	K07037	pgpH; cyclic-di-AMP phosphodiesterase PgpH [EC:3.1.4.-]	
+K07079_downstream.fna.motif.h2_2	2	K07079	K07079; uncharacterized protein	
+K07086_upstream.fna.motif.h1_1	2	K07086	K07086; uncharacterized protein	
+K07086_upstream.fna.motif.h2_3	2	K07086	K07086; uncharacterized protein	
+K08482_downstream.fna.motif.h2_1.h2_3	2	K08482	kaiC; circadian clock protein KaiC	
+K09942_upstream.fna.motif.h2_1	2	K09942	K09942; uncharacterized protein	
+K12574_downstream.fna.motif.h1_4	2	K12574	rnj; ribonuclease J [EC:3.1.-.-]	RNA degradation; 
+K18678_downstream.fna.motif.h2_3	2	K18678	VTE5; phytol kinase [EC:2.7.1.182]	
+K21703_downstream.fna.motif.h1_1.h1_3	2	K21703	cbbR, cmpR, ndhR; LysR family transcriptional regulator, low CO2-responsive transcriptional regulator	
+K21703_downstream.fna.motif.h1_2	2	K21703	cbbR, cmpR, ndhR; LysR family transcriptional regulator, low CO2-responsive transcriptional regulator	
+K21703_downstream.fna.motif.h2_1	2	K21703	cbbR, cmpR, ndhR; LysR family transcriptional regulator, low CO2-responsive transcriptional regulator	
+K21903_upstream.fna.motif.h2_1	2	K21903	cadC, smtB; ArsR family transcriptional regulator, lead/cadmium/zinc/bismuth-responsive transcriptional repressor	
+K00031_upstream.fna.motif.h2_3.h2_5	1	K00031	IDH1, IDH2, icd; isocitrate dehydrogenase [EC:1.1.1.42]	Citrate cycle (TCA cycle); ; Glutathione metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids; Peroxisome; Central carbon metabolism in cancer
+K00031_upstream.fna.motif.h2_4	1	K00031	IDH1, IDH2, icd; isocitrate dehydrogenase [EC:1.1.1.42]	Citrate cycle (TCA cycle); ; Glutathione metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids; Peroxisome; Central carbon metabolism in cancer
+K00075_upstream.fna.motif.h2_1	1	K00075	murB; UDP-N-acetylmuramate dehydrogenase [EC:1.3.1.98]	Amino sugar and nucleotide sugar metabolism; ; Peptidoglycan biosynthesis; Metabolic pathways; Biosynthesis of nucleotide sugars
+K00133_upstream.fna.motif.h2_1	1	K00133	asd; aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]	Glycine, serine and threonine metabolism; ; Monobactam biosynthesis; Cysteine and methionine metabolism; Lysine biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K00145_upstream.fna.motif.h1_5.h2_4.h2_1.h1_1	1	K00145	argC; N-acetyl-gamma-glutamyl-phosphate reductase [EC:1.2.1.38]	Arginine biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K00161_downstream.fna.motif.h1_1	1	K00161	PDHA, pdhA; pyruvate dehydrogenase E1 component alpha subunit [EC:1.2.4.1]	Glycolysis / Gluconeogenesis; ; Citrate cycle (TCA cycle); Pyruvate metabolism; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; HIF-1 signaling pathway; Glucagon signaling pathway; Central carbon metabolism in cancer; Diabetic cardiomyopathy
+K00228_upstream.fna.motif.h1_1.h1_4	1	K00228	CPOX, hemF; coproporphyrinogen III oxidase [EC:1.3.3.3]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K00228_upstream.fna.motif.h2_2	1	K00228	CPOX, hemF; coproporphyrinogen III oxidase [EC:1.3.3.3]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K00259_upstream.fna.motif.h2_1	1	K00259	ald; alanine dehydrogenase [EC:1.4.1.1]	Alanine, aspartate and glutamate metabolism; ; Taurine and hypotaurine metabolism; Metabolic pathways
+K00297_downstream.fna.motif.h1_4	1	K00297	metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]	One carbon pool by folate; ; Carbon fixation pathways in prokaryotes; Metabolic pathways; Microbial metabolism in diverse environments; Carbon metabolism
+K00324_upstream.fna.motif.h1_5	1	K00324	pntA; H+-translocating NAD(P) transhydrogenase subunit alpha [EC:1.6.1.2 7.1.1.1]	Nicotinate and nicotinamide metabolism; ; Metabolic pathways
+K00615_downstream.fna.motif.h1_1	1	K00615	E2.2.1.1, tktA, tktB; transketolase [EC:2.2.1.1]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Biosynthesis of ansamycins; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K00615_downstream.fna.motif.h2_1	1	K00615	E2.2.1.1, tktA, tktB; transketolase [EC:2.2.1.1]	Pentose phosphate pathway; ; Carbon fixation in photosynthetic organisms; Biosynthesis of ansamycins; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids
+K00640_downstream.fna.motif.h1_4.h2_1	1	K00640	cysE; serine O-acetyltransferase [EC:2.3.1.30]	Cysteine and methionine metabolism; ; Exopolysaccharide biosynthesis; Sulfur metabolism; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Biosynthesis of amino acids; Biofilm formation - Vibrio cholerae
+K00790_upstream.fna.motif.h2_4.h2_5	1	K00790	murA; UDP-N-acetylglucosamine 1-carboxyvinyltransferase [EC:2.5.1.7]	Amino sugar and nucleotide sugar metabolism; ; Peptidoglycan biosynthesis; Metabolic pathways; Biosynthesis of nucleotide sugars
+K00791_upstream.fna.motif.h2_4	1	K00791	miaA, TRIT1; tRNA dimethylallyltransferase [EC:2.5.1.75]	Zeatin biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K00793_upstream.fna.motif.h1_1	1	K00793	ribE, RIB5; riboflavin synthase [EC:2.5.1.9]	Riboflavin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K00937_downstream.fna.motif.h1_1	1	K00937	ppk1; polyphosphate kinase [EC:2.7.4.1]	Oxidative phosphorylation; ; RNA degradation
+K00937_downstream.fna.motif.h2_2	1	K00937	ppk1; polyphosphate kinase [EC:2.7.4.1]	Oxidative phosphorylation; ; RNA degradation
+K00940_downstream.fna.motif.h2_3	1	K00940	ndk, NME; nucleoside-diphosphate kinase [EC:2.7.4.6]	Purine metabolism; ; Pyrimidine metabolism; Drug metabolism - other enzymes; Metabolic pathways; Biosynthesis of secondary metabolites; Nucleotide metabolism; Biosynthesis of cofactors; MAPK signaling pathway - plant
+K00940_upstream.fna.motif.h1_4.h2_1	1	K00940	ndk, NME; nucleoside-diphosphate kinase [EC:2.7.4.6]	Purine metabolism; ; Pyrimidine metabolism; Drug metabolism - other enzymes; Metabolic pathways; Biosynthesis of secondary metabolites; Nucleotide metabolism; Biosynthesis of cofactors; MAPK signaling pathway - plant
+K00940_upstream.fna.motif.h2_2.h2_5	1	K00940	ndk, NME; nucleoside-diphosphate kinase [EC:2.7.4.6]	Purine metabolism; ; Pyrimidine metabolism; Drug metabolism - other enzymes; Metabolic pathways; Biosynthesis of secondary metabolites; Nucleotide metabolism; Biosynthesis of cofactors; MAPK signaling pathway - plant
+K00988_downstream.fna.motif.h2_1	1	K00988	APA1_2; sulfate adenylyltransferase (ADP) / ATP adenylyltransferase [EC:2.7.7.5 2.7.7.53]	Purine metabolism; ; Sulfur metabolism; Metabolic pathways; Microbial metabolism in diverse environments
+K01056_downstream.fna.motif.h2_1	1	K01056	PTH1, PTRH1, pth, spoVC; peptidyl-tRNA hydrolase, PTH1 family [EC:3.1.1.29]	
+K01191_upstream.fna.motif.h1_4	1	K01191	MAN2C1; alpha-mannosidase [EC:3.2.1.24]	Other glycan degradation; 
+K01265_upstream.fna.motif.h2_1	1	K01265	map; methionyl aminopeptidase [EC:3.4.11.18]	
+K01424_upstream.fna.motif.h1_1	1	K01424	E3.5.1.1, ansA, ansB; L-asparaginase [EC:3.5.1.1]	Alanine, aspartate and glutamate metabolism; ; Cyanoamino acid metabolism; Metabolic pathways; Biosynthesis of secondary metabolites
+K01537_upstream.fna.motif.h2_3	1	K01537	ATP2C; P-type Ca2+ transporter type 2C [EC:7.2.2.10]	
+K01601_downstream.fna.motif.h1_1	1	K01601	rbcL, cbbL; ribulose-bisphosphate carboxylase large chain [EC:4.1.1.39]	Glyoxylate and dicarboxylate metabolism; ; Carbon fixation in photosynthetic organisms; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism
+K01626_upstream.fna.motif.h1_5.h2_4	1	K01626	E2.5.1.54, aroF, aroG, aroH; 3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids; Quorum sensing
+K01626_upstream.fna.motif.h2_1.h2_3	1	K01626	E2.5.1.54, aroF, aroG, aroH; 3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids; Quorum sensing
+K01687_downstream.fna.motif.h1_3.h2_5	1	K01687	ilvD; dihydroxy-acid dehydratase [EC:4.2.1.9]	Valine, leucine and isoleucine biosynthesis; ; Pantothenate and CoA biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites; 2-Oxocarboxylic acid metabolism; Biosynthesis of amino acids
+K01698_upstream.fna.motif.h2_2	1	K01698	hemB, ALAD; porphobilinogen synthase [EC:4.2.1.24]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Biosynthesis of cofactors
+K01890_downstream.fna.motif.h2_1	1	K01890	FARSB, pheT; phenylalanyl-tRNA synthetase beta chain [EC:6.1.1.20]	Aminoacyl-tRNA biosynthesis; 
+K01890_downstream.fna.motif.h2_3	1	K01890	FARSB, pheT; phenylalanyl-tRNA synthetase beta chain [EC:6.1.1.20]	Aminoacyl-tRNA biosynthesis; 
+K01895_downstream.fna.motif.h1_4.h2_2	1	K01895	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]	Glycolysis / Gluconeogenesis; ; Pyruvate metabolism; Glyoxylate and dicarboxylate metabolism; Propanoate metabolism; Methane metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism
+K01929_downstream.fna.motif.h1_1	1	K01929	murF; UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase [EC:6.3.2.10]	Lysine biosynthesis; ; Peptidoglycan biosynthesis; Metabolic pathways; Vancomycin resistance
+K01961_downstream.fna.motif.h1_3	1	K01961	accC; acetyl-CoA carboxylase, biotin carboxylase subunit [EC:6.4.1.2 6.3.4.14]	Fatty acid biosynthesis; ; Pyruvate metabolism; Propanoate metabolism; Carbon fixation pathways in prokaryotes; Metabolic pathways; Biosynthesis of secondary metabolites; Microbial metabolism in diverse environments; Carbon metabolism; Fatty acid metabolism
+K02014_upstream.fna.motif.h1_4	1	K02014	TC.FEV.OM; iron complex outermembrane recepter protein	
+K02094_upstream.fna.motif.h1_1	1	K02094	apcC; phycobilisome core linker protein	Photosynthesis - antenna proteins; ; Metabolic pathways
+K02097_upstream.fna.motif.h1_2	1	K02097	apcF; phycobilisome core component	Photosynthesis - antenna proteins; ; Metabolic pathways
+K02097_upstream.fna.motif.h2_1.h2_4	1	K02097	apcF; phycobilisome core component	Photosynthesis - antenna proteins; ; Metabolic pathways
+K02110_downstream.fna.motif.h1_5	1	K02110	ATPF0C, atpE; F-type H+-transporting ATPase subunit c	Oxidative phosphorylation; ; Photosynthesis; Metabolic pathways
+K02217_upstream.fna.motif.h1_5.h2_2	1	K02217	ftnA, ftn; ferritin [EC:1.16.3.2]	
+K02221_downstream.fna.motif.h1_1	1	K02221	yggT; YggT family protein	
+K02221_downstream.fna.motif.h2_2	1	K02221	yggT; YggT family protein	
+K02316_upstream.fna.motif.h2_3	1	K02316	dnaG; DNA primase [EC:2.7.7.101]	DNA replication; 
+K02337_downstream.fna.motif.h1_4	1	K02337	dnaE; DNA polymerase III subunit alpha [EC:2.7.7.7]	DNA replication; ; Mismatch repair; Homologous recombination
+K02337_downstream.fna.motif.h1_5	1	K02337	dnaE; DNA polymerase III subunit alpha [EC:2.7.7.7]	DNA replication; ; Mismatch repair; Homologous recombination
+K02340_upstream.fna.motif.h2_1	1	K02340	holA; DNA polymerase III subunit delta [EC:2.7.7.7]	DNA replication; ; Mismatch repair; Homologous recombination
+K02340_upstream.fna.motif.h2_3	1	K02340	holA; DNA polymerase III subunit delta [EC:2.7.7.7]	DNA replication; ; Mismatch repair; Homologous recombination
+K02470_upstream.fna.motif.h1_5.h2_4.h2_1.h2_2	1	K02470	gyrB; DNA gyrase subunit B [EC:5.6.2.2]	
+K02503_downstream.fna.motif.h1_2	1	K02503	HINT1, hinT, hit; histidine triad (HIT) family protein	
+K02520_upstream.fna.motif.h1_5	1	K02520	infC, MTIF3; translation initiation factor IF-3	
+K02548_upstream.fna.motif.h1_4.h2_4	1	K02548	menA; 1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]	Ubiquinone and other terpenoid-quinone biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of cofactors
+K02588_upstream.fna.motif.h1_1	1	K02588	nifH; nitrogenase iron protein NifH	Chloroalkane and chloroalkene degradation; ; Nitrogen metabolism; Metabolic pathways; Microbial metabolism in diverse environments
+K02588_upstream.fna.motif.h2_1	1	K02588	nifH; nitrogenase iron protein NifH	Chloroalkane and chloroalkene degradation; ; Nitrogen metabolism; Metabolic pathways; Microbial metabolism in diverse environments
+K02591_upstream.fna.motif.h1_1.h2_1.h1_4	1	K02591	nifK; nitrogenase molybdenum-iron protein beta chain [EC:1.18.6.1]	Chloroalkane and chloroalkene degradation; ; Nitrogen metabolism; Metabolic pathways; Microbial metabolism in diverse environments
+K02700_downstream.fna.motif.h2_1	1	K02700	psaM; photosystem I subunit XII	Photosynthesis; ; Metabolic pathways
+K02704_upstream.fna.motif.h2_2	1	K02704	psbB; photosystem II CP47 chlorophyll apoprotein	Photosynthesis; ; Metabolic pathways
+K02716_upstream.fna.motif.h1_5	1	K02716	psbO; photosystem II oxygen-evolving enhancer protein 1	Photosynthesis; ; Metabolic pathways
+K02717_upstream.fna.motif.h1_3	1	K02717	psbP; photosystem II oxygen-evolving enhancer protein 2	Photosynthesis; ; Metabolic pathways
+K02717_upstream.fna.motif.h2_3	1	K02717	psbP; photosystem II oxygen-evolving enhancer protein 2	Photosynthesis; ; Metabolic pathways
+K02834_upstream.fna.motif.h1_3	1	K02834	rbfA; ribosome-binding factor A	
+K02834_upstream.fna.motif.h2_3	1	K02834	rbfA; ribosome-binding factor A	
+K02851_upstream.fna.motif.h2_1	1	K02851	wecA, tagO, rfe; UDP-GlcNAc:undecaprenyl-phosphate/decaprenyl-phosphate GlcNAc-1-phosphate transferase [EC:2.7.8.33 2.7.8.35]	O-Antigen repeat unit biosynthesis; ; Exopolysaccharide biosynthesis; Teichoic acid biosynthesis; Arabinogalactan biosynthesis - Mycobacterium; Metabolic pathways
+K02860_downstream.fna.motif.h2_2.h2_3	1	K02860	rimM; 16S rRNA processing protein RimM	
+K02888_upstream.fna.motif.h1_4.h2_2	1	K02888	RP-L21, MRPL21, rplU; large subunit ribosomal protein L21	Ribosome; 
+K02906_upstream.fna.motif.h1_2	1	K02906	RP-L3, MRPL3, rplC; large subunit ribosomal protein L3	Ribosome; 
+K02906_upstream.fna.motif.h1_5	1	K02906	RP-L3, MRPL3, rplC; large subunit ribosomal protein L3	Ribosome; 
+K02968_upstream.fna.motif.h1_3	1	K02968	RP-S20, rpsT; small subunit ribosomal protein S20	Ribosome; 
+K02990_downstream.fna.motif.h1_2	1	K02990	RP-S6, MRPS6, rpsF; small subunit ribosomal protein S6	Ribosome; 
+K03075_downstream.fna.motif.h1_2.h1_3	1	K03075	secG; preprotein translocase subunit SecG	Quorum sensing; ; Protein export; Bacterial secretion system
+K03187_upstream.fna.motif.h1_3.h2_3.h2_1	1	K03187	ureE; urease accessory protein	
+K03325_upstream.fna.motif.h2_1	1	K03325	ACR3, arsB; arsenite transporter	
+K03428_upstream.fna.motif.h1_3.h1_5	1	K03428	bchM, chlM; magnesium-protoporphyrin O-methyltransferase [EC:2.1.1.11]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K03428_upstream.fna.motif.h2_1.h2_2	1	K03428	bchM, chlM; magnesium-protoporphyrin O-methyltransferase [EC:2.1.1.11]	Porphyrin metabolism; ; Metabolic pathways; Biosynthesis of secondary metabolites
+K03499_downstream.fna.motif.h1_4.h2_3.h1_3	1	K03499	trkA, ktrA, ktrC; trk/ktr system potassium uptake protein	
+K03499_downstream.fna.motif.h1_5	1	K03499	trkA, ktrA, ktrC; trk/ktr system potassium uptake protein	
+K03501_upstream.fna.motif.h1_1.h2_2	1	K03501	gidB, rsmG; 16S rRNA (guanine527-N7)-methyltransferase [EC:2.1.1.170]	
+K03524_downstream.fna.motif.h1_4	1	K03524	birA; BirA family transcriptional regulator, biotin operon repressor / biotin---[acetyl-CoA-carboxylase] ligase [EC:6.3.4.15]	Biotin metabolism; ; Metabolic pathways
+K03524_upstream.fna.motif.h1_2	1	K03524	birA; BirA family transcriptional regulator, biotin operon repressor / biotin---[acetyl-CoA-carboxylase] ligase [EC:6.3.4.15]	Biotin metabolism; ; Metabolic pathways
+K03531_upstream.fna.motif.h1_1.h2_1	1	K03531	ftsZ; cell division protein FtsZ	Cell cycle - Caulobacter; 
+K03553_upstream.fna.motif.h1_4.h2_1	1	K03553	recA; recombination protein RecA	Homologous recombination; 
+K03593_upstream.fna.motif.h1_2.h1_3	1	K03593	mrp, NUBPL; ATP-binding protein involved in chromosome partitioning	
+K03593_upstream.fna.motif.h1_5	1	K03593	mrp, NUBPL; ATP-binding protein involved in chromosome partitioning	
+K03631_upstream.fna.motif.h1_2	1	K03631	recN; DNA repair protein RecN (Recombination protein N)	
+K03664_downstream.fna.motif.h2_4	1	K03664	smpB; SsrA-binding protein	
+K03727_upstream.fna.motif.h2_2	1	K03727	helY; ATP-dependent RNA helicase HelY [EC:3.6.4.-]	
+K03800_downstream.fna.motif.h2_2	1	K03800	lplA, lplJ, lipL1; lipoate---protein ligase [EC:6.3.1.20]	Lipoic acid metabolism; ; Metabolic pathways; Biosynthesis of cofactors
+K03856_upstream.fna.motif.h2_2	1	K03856	AROA2, aroA; 3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids
+K04075_downstream.fna.motif.h2_1	1	K04075	tilS, mesJ; tRNA(Ile)-lysidine synthase [EC:6.3.4.19]	
+K04485_downstream.fna.motif.h1_4	1	K04485	radA, sms; DNA repair protein RadA/Sms	
+K04518_upstream.fna.motif.h1_1.h1_4	1	K04518	pheA2; prephenate dehydratase [EC:4.2.1.51]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids
+K04518_upstream.fna.motif.h2_4	1	K04518	pheA2; prephenate dehydratase [EC:4.2.1.51]	Phenylalanine, tyrosine and tryptophan biosynthesis; ; Metabolic pathways; Biosynthesis of secondary metabolites; Biosynthesis of amino acids
+K05377_downstream.fna.motif.h1_5	1	K05377	cpeB, mpeB; phycoerythrin beta chain	Photosynthesis - antenna proteins; ; Metabolic pathways
+K05377_upstream.fna.motif.h1_5.h2_2	1	K05377	cpeB, mpeB; phycoerythrin beta chain	Photosynthesis - antenna proteins; ; Metabolic pathways
+K05585_upstream.fna.motif.h1_3	1	K05585	ndhN; NAD(P)H-quinone oxidoreductase subunit N [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K05585_upstream.fna.motif.h2_1	1	K05585	ndhN; NAD(P)H-quinone oxidoreductase subunit N [EC:7.1.1.2]	Oxidative phosphorylation; ; Metabolic pathways
+K05979_upstream.fna.motif.h2_3	1	K05979	comB; 2-phosphosulfolactate phosphatase [EC:3.1.3.71]	Methane metabolism; ; Metabolic pathways; Microbial metabolism in diverse environments; Biosynthesis of cofactors
+K06153_upstream.fna.motif.h1_1	1	K06153	bacA; undecaprenyl-diphosphatase [EC:3.6.1.27]	Peptidoglycan biosynthesis; ; Teichoic acid biosynthesis
+K06199_downstream.fna.motif.h2_1	1	K06199	crcB, FEX; fluoride exporter	
+K06381_downstream.fna.motif.h1_4.h2_4.h2_3	1	K06381	spoIID; stage II sporulation protein D	
+K06442_downstream.fna.motif.h2_1	1	K06442	tlyA; 23S rRNA (cytidine1920-2'-O)/16S rRNA (cytidine1409-2'-O)-methyltransferase [EC:2.1.1.226 2.1.1.227]	
+K06442_upstream.fna.motif.h1_1.h2_2	1	K06442	tlyA; 23S rRNA (cytidine1920-2'-O)/16S rRNA (cytidine1409-2'-O)-methyltransferase [EC:2.1.1.226 2.1.1.227]	
+K06872_downstream.fna.motif.h1_3	1	K06872	K06872; uncharacterized protein	
+K06997_upstream.fna.motif.h1_1	1	K06997	yggS, PROSC; PLP dependent protein	
+K07007_downstream.fna.motif.h1_1.h1_5	1	K07007	baiN; 3-dehydro-bile acid Delta4,6-reductase [EC:1.3.1.114]	Secondary bile acid biosynthesis; 
+K07015_upstream.fna.motif.h1_1	1	K07015	yqeG; putative phosphatase [EC:3.1.3.-]	
+K07301_upstream.fna.motif.h2_2.h2_4.h1_3	1	K07301	yrbG; cation:H+ antiporter	
+K07399_downstream.fna.motif.h1_2	1	K07399	resB, ccs1; cytochrome c biogenesis protein	
+K07399_downstream.fna.motif.h2_1.h2_3	1	K07399	resB, ccs1; cytochrome c biogenesis protein	
+K07456_upstream.fna.motif.h1_4	1	K07456	mutS2; DNA mismatch repair protein MutS2	Mismatch repair; 
+K09121_upstream.fna.motif.h1_4	1	K09121	larC; pyridinium-3,5-bisthiocarboxylic acid mononucleotide nickel chelatase [EC:4.99.1.12]	
+K09772_upstream.fna.motif.h1_4.h2_1.h1_2	1	K09772	sepF; cell division inhibitor SepF	
+K09775_downstream.fna.motif.h2_1	1	K09775	K09775; uncharacterized protein	
+K09928_upstream.fna.motif.h1_2.h2_1.h1_1	1	K09928	K09928; uncharacterized protein	
+K09942_upstream.fna.motif.h1_4.h2_2.h1_2	1	K09942	K09942; uncharacterized protein	
+K09966_upstream.fna.motif.h2_1	1	K09966	K09966; uncharacterized protein	
+K10716_upstream.fna.motif.h1_4	1	K10716	kch, trkA, mthK, pch; voltage-gated potassium channel	
+K10960_upstream.fna.motif.h1_5.h2_3.h2_1.h1_1	1	K10960	chlP, bchP; geranylgeranyl diphosphate/geranylgeranyl-bacteriochlorophyllide a reductase [EC:1.3.1.83 1.3.1.111]	Porphyrin metabolism; ; Terpenoid backbone biosynthesis; Metabolic pathways; Biosynthesis of secondary metabolites
+K12574_downstream.fna.motif.h2_3	1	K12574	rnj; ribonuclease J [EC:3.1.-.-]	RNA degradation; 
+K12574_upstream.fna.motif.h1_1.h1_3	1	K12574	rnj; ribonuclease J [EC:3.1.-.-]	RNA degradation; 
+K12574_upstream.fna.motif.h1_2	1	K12574	rnj; ribonuclease J [EC:3.1.-.-]	RNA degradation; 
+K14441_upstream.fna.motif.h2_3	1	K14441	rimO; ribosomal protein S12 methylthiotransferase [EC:2.8.4.4]	
+K14761_upstream.fna.motif.h1_5	1	K14761	ybcJ; ribosome-associated protein	
+K18678_downstream.fna.motif.h2_4	1	K18678	VTE5; phytol kinase [EC:2.7.1.182]	
+K19032_downstream.fna.motif.h1_2	1	K19032	PSRP3; 30S ribosomal protein 3	
+K19166_upstream.fna.motif.h1_1	1	K19166	higB; mRNA interferase HigB [EC:3.1.-.-]	
+K19166_upstream.fna.motif.h1_4	1	K19166	higB; mRNA interferase HigB [EC:3.1.-.-]	
+K19294_downstream.fna.motif.h2_1	1	K19294	algI; alginate O-acetyltransferase complex protein AlgI	Exopolysaccharide biosynthesis; 
+K19294_upstream.fna.motif.h1_2	1	K19294	algI; alginate O-acetyltransferase complex protein AlgI	Exopolysaccharide biosynthesis; 
