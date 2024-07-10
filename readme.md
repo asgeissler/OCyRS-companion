@@ -86,6 +86,14 @@ Cornet L, Ahn AC, Wilmotte A, Baurain D.
 Genes. 2021
 
 
+### Rfam-Query
+
+The SQL query to retrieve from the Rfam MySQL database
+(https://docs.rfam.org/en/latest/database.html)
+the exact number of families that have cyanobacterial sequences
+in their seed alignments.
+
+
 ### Topology Illustration
 
 The script generates  an illustration of the topology distance
