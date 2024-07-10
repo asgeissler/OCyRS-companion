@@ -8,10 +8,10 @@ This repository accompanies the main pipeline
 of the scientific publication:
 
 
-A cyanobacteria phylum-wide genomic screen for RNA structure motifs
-adjacent to orthologues genes  
-AS  Geissler, EC Alvarez, NU Frigaard, J Gorodkin, and SE Seemann  
+"Exploring the RNA structure regulatory potential in 202 cyanobacterial genomes"  
+AS  Geissler, EC Alvarez, C Anthon, NU Frigaard, J Gorodkin, and SE Seemann  
 *in preparation*
+
 
 ## Contents
 
