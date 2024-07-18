@@ -62,6 +62,10 @@ of execution) that do the following steps:
 5. A small overview figure of species with RNA-seq data
 
 
+### Polish
+
+Folder contains scripts to re-create some of the plots from the main pipeline,
+just with minor polishing for the final publication.
 
 ### Reference trees
 

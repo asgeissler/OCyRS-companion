@@ -18,7 +18,7 @@ bind_rows(
   scale_color_manual(values = c( '#56B4E9', '#E69F00'), name = NULL) +
   scale_y_continuous(breaks = seq(0, 1, .1)) +
   xlab('Average pairwise sequence id') +
-  ylab('Emp. cum. density') +
+  ylab('Empirical cumulative density') +
   theme_bw(18) +
   theme(legend.position = 'bottom')
 
