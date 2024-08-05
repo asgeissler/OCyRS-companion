@@ -37,12 +37,16 @@ redundant <-
 ################################################################################
 
 motif.pos <-
-  '~/OCyRS-pipeline/data/K_motif-tax-pos.tsv' |>
+  '../OCyRS-pipeline/data/K_motif-tax-pos.tsv' |>
   read_tsv() |>
   anti_join(redundant, 'motif')
 
 genes <-
-  '~/OCyRS-pipeline/data/A_representatives/genes.tsv.gz' |>
+  '../OCyRS-pipeline/data/A_representatives/genes.tsv.gz' |>
+  read_tsv()
+
+rfam <-
+  '../OCyRS-pipeline/data/G_rfam-cmsearch.tsv.gz' |>
   read_tsv()
 
 # Prepare for species of interest
@@ -51,31 +55,51 @@ mask <-
   pull(tax.bio) |>
   unique()
 # SAF columns are: 'GeneID\tChr\tStart\tEnd\tStrand'
-todo.genes <-
-  bind_rows(
-    motif.pos |>
-      filter(tax.bio %in% mask) |>
-      transmute(
-        tax.bio,
-        GeneID = sprintf('%s;pos%s', motif, start),
-        Chr = seqnames,
-        Start = start,
-        End = end,
-        Strand = strand
-      ) |>
-      mutate_all(as.character),
-    genes |>
-      filter(tax.bio %in% mask) |>
-      transmute(
-        tax.bio,
-        GeneID = tax.bio.gene,
-        Chr = tax.bio.chr,
-        Start = start,
-        End = end,
-        Strand = strand
-      ) |>
-      mutate_all(as.character)
+todo.genes <- bind_rows(
+  motif.pos |>
+    filter(tax.bio %in% mask) |>
+    transmute(
+      tax.bio,
+      GeneID = sprintf('%s;pos%s', motif, start),
+      Chr = seqnames,
+      Start = start,
+      End = end,
+      Strand = strand
+    ) |>
+    mutate_all(as.character),
+  genes |>
+    filter(tax.bio %in% mask) |>
+    transmute(
+      tax.bio,
+      GeneID = tax.bio.gene,
+      Chr = tax.bio.chr,
+      Start = start,
+      End = end,
+      Strand = strand
+    ) |>
+    mutate_all(as.character),
+  rfam |>
+    filter(tax_bio %in% mask) |>
+    mutate(
+      tmp = start,
+      start = ifelse(start > end, end, start),
+      end = ifelse(tmp > end, tmp, end)
+    ) |>
+    transmute(
+      tax.bio = tax_bio,
+      GeneID = paste(
+        rf, name, start,
+        sep = ';'
+      ),
+      Chr = chr,
+      Start = start,
+      End = end,
+      Strand = strand
+    ) |>
+    mutate_all(as.character)
 )
+
+
 
 ################################################################################
 # Create one RNA-browser project per folder and copy processed mRNA over
@@ -97,15 +121,15 @@ todo.browser |>
       x
     )
     system(cmd)
-
+    
     # copy genome over from main project
     file.copy(
-      '~/OCyRS-pipeline/data/A_representatives/%s/genome.fna.gz' |>
+      '../OCyRS-pipeline/data/A_representatives/%s/genome.fna.gz' |>
         sprintf(taxbio),
       '3-RNA-Browser/%s/genome.fna.gz' |>
         sprintf(x)
     )
-
+    
     # copy (not symbolic link due to singularity container security limitation)
     # the processed read files over
     dir.create(sprintf('3-RNA-Browser/%s/data', x))
@@ -117,7 +141,7 @@ todo.browser |>
           sprintf('3-RNA-Browser/%s/data/%s.fastq.gz', x, i)
         )
       })
-
+    
     # create the samples file
     xs |>
       transmute(
@@ -128,8 +152,8 @@ todo.browser |>
         file = paste0(file, '.fastq.gz')
       ) |>
       write_csv(sprintf('3-RNA-Browser/%s/samples.csv', x))
-
-    # make an empty annotation file
+    
+    # # make an empty annotation file
     file.create(sprintf('3-RNA-Browser/%s/genome.gff.gz', x))
     # build SAF for featureCounts
     todo.genes |>
@@ -138,7 +162,6 @@ todo.browser |>
       write_tsv(sprintf('3-RNA-Browser/%s/genes.saf', x))
   })
 
-# rm -rf 3-RNA-Browser/*/analysis/4*
 # update config files to
 # vi 3-RNA-Browser/*/config.yaml
 # '--fracOverlap 0.5 -O'
