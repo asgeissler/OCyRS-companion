@@ -4,325 +4,150 @@ library(tidyverse)
 library(patchwork)
 library(ggpubr)
 
-library(SummarizedExperiment)
 library(zFPKM)
 
 ################################################################################
-# Double check stats of mapping and assignment rates for sanity check
+
+expression.rpkm <- readRDS('4-rpkm.rds')
+
+################################################################################
+################################################################################
+# Compare distributions of RPKM values of genes vs CRS/Rfam
 
 
-load.json <- function(i) {
-  dat <- jsonlite::read_json(i)
-  
-  dat$report_general_stats_data %>%
-    map(function(xs) {
-      map2(xs, names(xs),
-           function(x, y) {
-             x$sample <- y
-             keep(x, ~ length(.x) == 1) %>%
-               as_tibble()
-           }) %>%
-        bind_rows()
-    }) %>%
-    bind_rows()
-}
-
-map.dat <-
-  '3-RNA-Browser/*/multiqc/multiqc_data/multiqc_data.json' |>
-  Sys.glob() |>
-  map(function(i) {
-    # i <- '3-RNA-Browser/Acaryochloris.marina.MBIC11017_txid329726_SAMN02604308_unknown/multiqc/multiqc_data/multiqc_data.json'
-    j <-
-      i |>
-      dirname() |>
-      dirname() |>
-      dirname() |>
-      basename()
-    i |>
-      load.json() |>
-      transmute(
-        sample,
-        'reads after QC' = total_reads,
-        'mapping' = total_reads - unpaired_aligned_none,
-        'mapping_rate' = mapping / total_reads * 100,
-        'mapping_uniquely' = unpaired_aligned_one,
-        'mapping_uniquely_rate' = mapping_uniquely / mapping * 100,
-        'feature_assigned' = Assigned,
-        'feature_assigned_rate' = percent_assigned
-      ) |>
-      group_by(sample) |>
-      summarize_all(~ .x |> discard(is.na) |> unique()) |>
-      ungroup() |>
-      mutate(genome = j)
+meta <-
+  expression.rpkm %>%
+  map2(names(.), function(xs, ys) {
+    xs |>
+      rownames() |>
+      tibble(gene = _) |>
+      mutate(
+        genome = ys,
+        type = case_when(
+          str_starts(gene, 'RF') ~ 'Rfam',
+          str_detect(gene, 'fna.motif')  ~ 'CRS',
+          TRUE ~ 'gene'
+        )
+      )
   }) |>
   bind_rows()
 
 ################################################################################
 
-map.dat |>
-  select(genome, sample, contains('rate')) |>
-  pivot_longer(contains('rate')) |>
-  mutate_at('genome', str_remove, '_txid.*$') |>
-  mutate_at('name', fct_inorder) |>
-  ggplot(aes(name, value, color = genome)) +
-  geom_boxplot() +
-  ylab('% reads compared to preceeding step') +
-  xlab(NULL) +
-  # ggsci::scale_color_jco(name = NULL) +
-  scale_color_viridis_d(name = NULL) +
-  guides(color = guide_legend(ncol = 2)) +
-  theme_pubr(18)
-
-ggsave('4-mapping-stat.jpeg', width = 12, height = 8)
-
-################################################################################
-# Load expression data
-
-expression.dat <-
-  '3-RNA-Browser/*/analysis/41_counts.tsv' |>
-  Sys.glob() %>%
-  set_names(
-    . |>
-      dirname() |>
-      dirname() |>
-      basename()
+meta |>
+  count(type, genome) |>
+  spread(type, n) |>
+  rename(
+    CRS.seq = CRS,
+    Rfam.hits = Rfam
   ) |>
-  map(read_tsv)
+  left_join(
+    meta |>
+      filter(type == 'CRS') |>
+      mutate(motif = str_remove(gene, ';pos.*')) |>
+      select(genome, motif) |>
+      unique() |>
+      count(genome, name = 'CRS.motifs'),
+    'genome'
+  ) |> 
+  left_join(
+    meta |>
+      filter(type == 'Rfam') |>
+      mutate(fam = str_remove(gene, ';.*')) |>
+      select(genome, fam) |>
+      unique() |>
+      count(genome, name = 'Rfam.fam'),
+    'genome'
+  ) |> 
+  arrange(desc(gene)) |>
+  select(genome, gene, Rfam.hits, Rfam.fam, everything())
+  
+# genome                                                                            gene Rfam.hits Rfam.fam CRS.seq CRS.motifs
+# <chr>                                                                            <int>     <int>    <int>   <int>      <int>
+# 1 Acaryochloris.marina.MBIC11017_txid329726_SAMN02604308_unknown                    6333        90       16      29         27
+# 2 Nostoc.sp.PCC.7120.FACHB.418_txid103690_SAMD00061094_Nostocales                   5429       200       28      40         35
+# 3 Trichodesmium.erythraeum.IMS101_txid203124_SAMN02598485_Oscillatoriales           4498        58       17      37         33
+# 4 Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales                   3565        64       18      13         13
+# 5 Synechocystis.sp.PCC.6803_txid1148_SAMD00061113_Synechococcales                   3216        65       20      12         12
+# 6 Synechococcus.elongatus.PCC.7942.FACHB.805_txid1140_SAMN02598254_Synechococcales  2663        62       14      41         41
+# 7 Thermosynechococcus.vestitus.BP.1_txid197221_SAMD00061106_unknown                 2520        57       16      10          9
+# 8 Prochlorococcus.marinus.str.NATL2A_txid59920_SAMN00623057_Synechococcales         2206        55       15     157        157
+# 9 Prochlorococcus.marinus.str.MIT.9312_txid74546_SAMN02598321_NA                    2006        58       20     249        249
 
 ################################################################################
-# save for export to paper
 
-expression.dat %>%
+rdat <-
+  expression.rpkm |>
+  map(as_tibble, rownames = 'gene') %>%
   map2(names(.), ~ mutate(.x, genome = .y)) |>
-  map(pivot_longer, -c(genome, Geneid, Chr, Start, End, Strand, Length),
-      names_to = 'library', values_to = 'expression_count') |>
-  bind_rows() |>
-  dplyr::select(genome, everything()) |>
-  write_tsv('4-expression-data.tsv.gz')
+  map(pivot_longer, - c(gene, genome)) |>
+  bind_rows()
 
 ################################################################################
-# prepare FPKM normalized matrices
-
-
-rpkm <- function(x) {
-  # x <- expression.dat$Synechocystis.sp.PCC.6803_txid1148_SAMD00061113_Synechococcales
-  x.long <-
-    x |>
-    select(- c(Chr, Start, End, Strand)) |>
-    pivot_longer(- c(Geneid, Length))
-  
-  x.long |>
-    left_join(
-      map.dat |>
-        select(name = sample, total = mapping_uniquely),
-      # x.long |>
-      #   group_by(name) |>
-      #   summarize(total = sum(value)),
-      'name'
-    ) |>
-    mutate(
-      pm = total / 1e6,
-      klen = Length / 1e3,
-      rpkm = value / pm / klen
-    ) |>
-    select(Geneid, name, value = rpkm) |>
-    pivot_wider() -> res
-  res <-
-    res |>
-    select(- Geneid) |>
-    as.data.frame() |>
-    magrittr::set_rownames(res$Geneid)
-  
-  # mask <- rowMax(as.matrix(res)) > 0
-  # res[mask, ]
-  res
-}
-
-expression.rpkm <-
-  expression.dat |>
-  map(rpkm)
-
-################################################################################
-# prepare TPM normalized matrices
-
-
-tpm <- function(x) {
-  # x <- expression.dat$Synechocystis.sp.PCC.6803_txid1148_SAMD00061113_Synechococcales
-  x.long <-
-    x |>
-    select(- c(Chr, Start, End, Strand)) |>
-    pivot_longer(- c(Geneid, Length))
-  
-  step1 <-
-    x.long |>
-    mutate(
-      klen = Length / 1e3,
-      v2 = value / klen
-    )
-  step1 |>
-    left_join(
-      step1 |>
-        group_by(name) |>
-        summarise(pm = sum(v2) / 1e6),
-      'name'
-    ) |>
-    transmute(
-      Geneid, name,
-      value = v2 / pm
-    ) |>
-    pivot_wider() -> res
-  res <-
-    res |>
-    select(- Geneid) |>
-    as.data.frame() |>
-    magrittr::set_rownames(res$Geneid)
-  
-  # mask <- rowMax(as.matrix(res)) > 0
-  # res[mask, ]
-  res
-}
-
-expression.tpm <-
-  expression.dat |>
-  map(tpm)
-
 ################################################################################
 
-my.des <- function(x) {
-  # x <- expression.dat$Synechocystis.sp.PCC.6803_txid1148_SAMD00061113_Synechococcales
-  x.mat <-
-    x |>
-    select(- c(Geneid, Chr, Start, End, Strand, Length)) |>
-    as.matrix() |>
-    magrittr::set_rownames(x$Geneid)
-  
-  # mask <- rowMax(x.mat) > 0
-  
-  DESeq2::DESeqDataSetFromMatrix(
-    # x.mat[mask, ],
-    x.mat,
-    tibble(lib = colnames(x.mat)),
-    ~ 1
+rdat |>
+  left_join(meta, c('gene', 'genome')) |>
+  # filter(genome == 'Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales') |>
+  group_by(genome, name, type) |>
+  summarize(
+    avg = mean(log10(value + 1)),
+    se = sd(log10(value + 1))
   ) |>
-    DESeq2::DESeq()
-}
-
-des.list <-
-  expression.dat |>
-  map(my.des)
-  
-norm.versions <-
-  list(
-    RPKM = expression.rpkm,
-    TPM = expression.tpm,
-    VST = des.list |>
-      map(DESeq2::vst) |>
-      map(SummarizedExperiment::assay) |>
-      map(as.data.frame) |>
-      # avoid negative values in vst
-      map(~ .x - min(.x))
+  ungroup()  |>
+  arrange(genome, type, avg) |>
+  mutate_at('name', fct_inorder) |>
+  ggplot(aes(
+    name, avg,
+    ymin = avg - se,
+    ymax = avg + se,
+    group = type,
+    fill = type,
+    color = type)) +
+  geom_ribbon(alpha = .5) +
+  geom_line(size = 1.5) +
+  ggsci::scale_color_jama() +
+  ggsci::scale_fill_jama() +
+  xlab('RNA-seq libraries') +
+  ylab('log10(RPKM + 1)') +
+  coord_flip() +
+  facet_grid(row = 'genome', scales = 'free_y',  space = "free") +
+  theme_pubr(18) +
+  theme(
+    strip.text.y = element_text(angle = 0),
+    axis.text.y = element_blank()
   )
 
-################################################################################
+ggsave('rpkm-avg-se.jpg', width = 20, height = 15)
 
-norm.versions$`normalized counts` <-
-  des.list |>
-  map(DESeq2::counts, normalized = TRUE)
 
-all.lengths <-
-  expression.dat |>
-  map(select, Geneid, Length) |>
-  bind_rows() |>
-  with(set_names(Length, Geneid))
-norm.versions$`normalized counts / gene length` <-
-  des.list |>
-  map(DESeq2::counts, normalized = TRUE) |>
-  map(~ .x / all.lengths[rownames(.x)])
-# matrix(1:9, nrow = 3) / 1:3
-
-# norm.versions$`VST / gene length` <-
-#   norm.versions$VST |>
-#   map(~ .x / all.lengths[rownames(.x)])
+rdat |>
+  left_join(meta, c('gene', 'genome')) |>
+  filter(genome == 'Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales') |>
+  ggplot(aes(log10(value + 1), color = type)) +
+  stat_ecdf() +
+  facet_wrap(~ name) +
+  theme_pubr(18) +
+  ggtitle('Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales')
     
 ################################################################################
-################################################################################
-# Justify choice of normalization method
-
-x <- 'Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales'
-
-norm.versions |>
-  map(x) |>
-  map(as_tibble, rownames = 'gene') %>%
-  map2(names(.), ~ mutate(.x, method = .y)) |>
-  bind_rows() |>
-  pivot_longer(- c(gene, method)) -> foo
-
-foo |>
-  mutate_at('value', ~ .x + 1) |>
-  ggplot(aes(value, color = name)) +
-  geom_density() +
-  scale_x_log10() +
-  facet_wrap(~ method, scales = 'free') +
-  ggsci::scale_color_d3(name = NULL) +
-  xlab('Expression value after tranformation') +
-  theme_pubr(18) +
-  ggtitle(x |> str_remove('_txid.*'))
-
-ggsave('4-norm-choice.jpeg', width = 18, height = 8)
-
-norm.versions |>
-  map(x) %>%
-  map2(names(.), ~ tibble(
-    value = apply(.x, 1, median),
-    gene = rownames(.x),
-    length = all.lengths[gene],
-    method = .y
-  )) |>
-  bind_rows() -> bar
-bar |>
-  mutate_at('value', ~ .x + 1) |>
-  ggscatter(
-    'length', 'value',
-    facet.by = 'method',
-    scales =  'free',
-    cor.coef = TRUE,
-    cor.coeff.args = list(color = 'red', size = 5),
-    add = 'reg.line',
-    add.params = list(color = 'red')
-  ) +
-  scale_x_log10() +
-  scale_y_log10() +
-  ggtitle(x |> str_remove('_txid.*')) +
-  xlab('Gene length') +
-  ylab('Gene expression')
-
-ggsave('4-norm-length-correlation.jpeg', width = 14, height = 8)
-
-################################################################################
-
-
 ################################################################################
 # Check out the various zFPKM data versions
 
 z.dat <-
-  norm.versions %>%
-  map(function(mats) {
-    mats |>
-      map(function(x) {
-        x <- as.data.frame(x + 1)
-        zFPKM(x)
-      })
+  expression.rpkm |>
+  map(function(x) {
+    x <- as.data.frame(x + 1)
+    zFPKM(x)
   })
 
 
 x <- 'Synechocystis.sp.PCC.6714_txid1147_SAMN02471775_Synechococcales'
 z.dat |>
-  map(x) |>
-  map(as_tibble, rownames = 'gene') %>%
-  map2(names(.), ~ mutate(.x, norm = .y)) |>
-  bind_rows() |>
-  pivot_longer(- c( gene, norm)) |>
-  ggecdf('value', color = 'name', facet.by = 'norm', scales = 'free_x') +
+  _[[x]] |>
+  as_tibble(rownames = 'gene') %>%
+  pivot_longer(- gene) |>
+  ggecdf('value', color = 'name', scales = 'free_x') +
   ggsci::scale_color_jco(name = NULL) +
   theme_bw(16) +
   ggtitle(x |> str_remove('_txid.*')) +
@@ -331,7 +156,6 @@ z.dat |>
   geom_vline(xintercept = -3, color = 'blue') +
   geom_vline(xintercept = -2, color = 'orange') +
   geom_vline(xintercept = -1, color = 'red') +
-  # scale_x_continuous(breaks = -4:4) +
   scale_y_continuous(breaks = seq(0, 1, .1))
 
 ggsave('4-new-cutoff.jpeg', width = 18, height = 8)
