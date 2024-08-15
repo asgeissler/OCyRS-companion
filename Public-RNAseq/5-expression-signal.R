@@ -341,6 +341,6 @@ xs |>
   mutate(term = str_remove(gene, '_.*')) |>
   inner_join(xs.meta, 'term') -> xs2
 
-write_tsv(xs2, '4-maybe-interest.tsv')
+write_tsv(xs2, '5-maybe-interest.tsv')
 
 xs2
