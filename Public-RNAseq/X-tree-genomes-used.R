@@ -73,7 +73,7 @@ ref$tip.label <- str_remove(ref$tip.label, '\\..*$')
 
 # ncbi order for coloration to accept 
 rec.orders <-
-  '../OCyRS-pipeline/data/A_representatives/taxonomy.tsv' |>
+  '~/OCyRS-pipeline/data/A_representatives/taxonomy.tsv' |>
   read_tsv() |>
   select(order) |>
   drop_na() |>
@@ -159,6 +159,6 @@ p.otu <-
 
 p.otu
 
-ggsave('5-rnaseq-overview.jpeg', width = 8, height = 7)
+ggsave('X-rnaseq-overview.jpeg', width = 8, height = 7)
 
 
