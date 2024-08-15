@@ -32,6 +32,8 @@ meta <-
   }) |>
   bind_rows()
 
+write_tsv(meta, '5-meta.tsv.gz')
+
 ################################################################################
 
 meta |>
@@ -60,8 +62,9 @@ meta |>
     'genome'
   ) |> 
   arrange(desc(gene)) |>
-  select(genome, gene, Rfam.hits, Rfam.fam, everything())
+  select(genome, gene, Rfam.hits, Rfam.fam, everything()) -> annot.stat
   
+annot.stat
 # genome                                                                            gene Rfam.hits Rfam.fam CRS.seq CRS.motifs
 # <chr>                                                                            <int>     <int>    <int>   <int>      <int>
 # 1 Acaryochloris.marina.MBIC11017_txid329726_SAMN02604308_unknown                    6333        90       16      29         27
@@ -73,6 +76,7 @@ meta |>
 # 7 Thermosynechococcus.vestitus.BP.1_txid197221_SAMD00061106_unknown                 2520        57       16      10          9
 # 8 Prochlorococcus.marinus.str.NATL2A_txid59920_SAMN00623057_Synechococcales         2206        55       15     157        157
 # 9 Prochlorococcus.marinus.str.MIT.9312_txid74546_SAMN02598321_NA                    2006        58       20     249        249
+
 
 ################################################################################
 
@@ -118,7 +122,7 @@ rdat |>
     axis.text.y = element_blank()
   )
 
-ggsave('rpkm-avg-se.jpg', width = 20, height = 15)
+ggsave('5-rpkm-avg-se.jpg', width = 20, height = 15)
 
 
 rdat |>
@@ -132,7 +136,7 @@ rdat |>
     
 ################################################################################
 ################################################################################
-# Check out the various zFPKM data versions
+# Check out the zFPKM versions
 
 z.dat <-
   expression.rpkm |>
@@ -158,19 +162,19 @@ z.dat |>
   geom_vline(xintercept = -1, color = 'red') +
   scale_y_continuous(breaks = seq(0, 1, .1))
 
-ggsave('4-new-cutoff.jpeg', width = 18, height = 8)
+ggsave('5-cutoff.jpeg', width = 18, height = 8)
 
 ################################################################################
 # save for export to paper
 
-z.dat$RPKM |>
+z.dat |>
   map(as_tibble, rownames = 'Geneid') %>%
   map2(names(.), ~ mutate(.x, genome = .y)) |>
   map(pivot_longer, - c(Geneid, genome),
       names_to = 'library', values_to = 'zFPKM') |>
   bind_rows() |>
   dplyr::select(genome, everything()) |>
-  write_tsv('4-zFPKM-data.tsv.gz')
+  write_tsv('5-zFPKM-data.tsv.gz')
 
 
 ################################################################################
@@ -179,26 +183,20 @@ z.dat$RPKM |>
 seq(-3, -0, .25) |>
   map(function(cutoff) {
     z.dat %>%
-      map2(names(.), function(mats, method) {
-        mats %>%
-          map2(names(.), function(x, genome) {
-            apply(x > cutoff, 2, sum) %>%
-              tibble(
-                lib = names(.),
-                cutoff = cutoff,
-                method = method,
-                genome = genome,
-                expressed.genes = ., n.genes = dim(x)[1]
-              )
-          }) |>
+      map2(names(.), function(x, genome) {
+        apply(x > cutoff, 2, sum) %>%
+          tibble(
+            lib = names(.),
+            cutoff = cutoff,
+            genome = genome,
+            expressed.genes = ., n.genes = dim(x)[1]
+          )
+      }) |>
           bind_rows()
-    }) |>
-      bind_rows()
   }) |>
   bind_rows() -> foo
 
 foo |>
-  filter(method == 'RPKM') |>
   mutate(prop = expressed.genes / n.genes * 100) |>
   mutate_at('genome', str_remove, '_txid.*') |>
   mutate_at('genome', str_replace_all, '\\.', ' ') |>
@@ -211,82 +209,67 @@ foo |>
   geom_vline(xintercept = -1, color = 'red') +
   theme_pubr(18) +
   theme(legend.position = 'right')
-  # facet_wrap(~ method)
 
-ggsave('4-per-lib-detected.jpeg', width = 14, height = 8)
+ggsave('5-per-lib-detected.jpeg', width = 14, height = 8)
 
 ################################################################################
 # compare choice of normalization on expression detection
 
 z.dat %>%
-  map2(names(.), function(mats, method) {
-    mats |>
-      map(function(x) {
-        apply(x > -1, 1, sum) %>%
-          tibble(gene = names(.), expressed.libs = ., libs.total = dim(x)[2]) |>
-          mutate(ratio = expressed.libs / libs.total)
-      }) %>%
-      map2(names(.), ~ mutate(.x, genome = .y)) |>
-      bind_rows() |>
-      mutate(method = method)
-  }) |>
+  map(function(x) {
+    apply(x > -1, 1, sum) %>%
+      tibble(gene = names(.), expressed.libs = ., libs.total = dim(x)[2]) |>
+      mutate(ratio = expressed.libs / libs.total)
+  }) %>%
+  map2(names(.), ~ mutate(.x, genome = .y)) |>
   bind_rows() -> overall
 
-write_tsv(overall, '4-expression-ratios.tsv')
+write_tsv(overall, '5-expression-ratios.tsv')
 
-# overall <- read_tsv('4-expression-ratios.tsv')
+# overall <- read_tsv('5-expression-ratios.tsv')
 
 overall |>
   mutate_at('genome', str_remove, '_txid.*') |>
   ggplot(aes(ratio, color = genome)) +
   stat_ecdf() +
-  facet_wrap(~ method) +
   xlab('Ratio libraries detected as expressed') +
   guides(color = guide_legend(ncol = 2)) +
   theme_pubr(16)
-  # theme(legend.position = 'right')
 
 ################################################################################
+################################################################################
 
-overall |>
-  # filter(ratio >= 0.5) |>
-  filter(expressed.libs >= 3) |>
-  select(method, genome, gene) %>%
-  split(.$genome) |>
-  map(~ split(.x$gene, .x$method)) -> foo
+dat <-
+  overall |>
+  left_join(meta) |>
+  mutate(gene = str_remove(gene, ';.*')) |>
+  group_by(gene, genome, type, libs.total) |>
+  summarize(max.expressed.libs = max(expressed.libs)) |>
+  ungroup() |>
+  filter(max.expressed.libs >= 3) |>
+  count(genome, type, libs.total) |>
+  left_join(
+    annot.stat |>
+      select(genome, gene, Rfam = Rfam.fam, CRS = CRS.motifs) |>
+      pivot_longer(- genome, names_to = 'type')
+  ) |>
+  mutate(pct = n / value * 100 )
 
-overall %>%
-  split(.$genome) |>
-  map(function(x) { foo[[dplyr::first(x$genome)]]$Genome <<- x$gene})
-  
+dat |>
+  select(genome, type, libs.total, pct) |>
+  spread(type, pct)  |>
+  rename('Libraries' = libs.total) |>
+  GGally::ggpairs(columns = 2:5) +
+  theme_bw(18)
 
-foo %>%
-  map2(names(.), function(xs, genome) {
-    venn::venn(
-      xs[c('Genome', 'RPKM', 'TPM', 'normalized counts')],
-      ilabels = 'counts',
-      ilcs = 1.3, sncs = 1.3,
-      box = FALSE,
-      zcolor = 'style',
-      ggplot = TRUE
-    ) +
-      annotate('text', 50, 980,
-               label = genome |> str_remove('_txid.*'),
-               hjust = 0, size = 5)
-  }) |>
-  purrr::reduce(.f = `+`)
-
-ggsave('4-methods-venn.jpeg', width = 20, height = 20)
-
+ggsave('5-pairs.jpeg', width = 16, height = 12)
 
 ################################################################################
 
 genes.total <-
-  expression.dat |>
-  map(select, Geneid) %>%
-  map2(names(.), ~ mutate(.x, genome = .y)) |>
-  bind_rows() |>
-  mutate(is.motif = str_detect(Geneid, 'fna.motif')) |>
+  overall |>
+  left_join(meta) |>
+  select(gene, genome) |>
   mutate(name = str_remove(Geneid, ';pos[0-9]+$')) |>
   select(genome, name, is.motif) |>
   unique() |>
@@ -296,141 +279,53 @@ genes.total <-
     total.motifs = sum(is.motif)
   )
 
-overall |>
-  filter(method == 'RPKM') |>
-  filter(expressed.libs >= 3) |>
-  mutate(is.motif = str_detect(gene, 'fna.motif')) |>
-  mutate(name = str_remove(gene, ';pos[0-9]+$')) |>
-  select(name, is.motif, libs.total, genome) |>
-  unique() |>
-  group_by(genome) |>
-  summarize(
-    expressed.features = n(),
-    expressed.motifs = sum(is.motif),
-    libs.total = unique(libs.total)
-  ) |>
-  left_join(genes.total, 'genome') |>
+dat |>
   separate(genome, c('species', 'txid', 'bio', 'order'), sep = '_') |>
   mutate_at('species', str_replace_all, '\\.', ' ') |>
-  mutate(
-    total.genes = total.features - total.motifs,
-    expressed.genes = expressed.features - expressed.motifs
-  ) |>
   transmute(
     species, 
     libs.total,
-    totalgenes = prettyNum(total.genes, big.mark = ','),
-    expressed.genes = sprintf(
+    type,
+    total = prettyNum(value, big.mark = ','),
+    expressed = sprintf(
       '%s (%s%%)',
-      prettyNum(expressed.genes, big.mark = ','),
-      round(expressed.genes / total.genes * 100, 1)
-    ),
-    total.motifs,
-    expressed.motifs = sprintf(
-      '%s (%s%%)',
-      prettyNum(expressed.motifs, big.mark = ','),
-      round(expressed.motifs / total.motifs * 100, 1)
+      prettyNum(n, big.mark = ','),
+      round(pct, 1)
     )
   ) |>
-# species                                    libs.total totalgenes expressed.genes total.motifs expressed.motifs
-# 1 Acaryochloris marina MBIC11017                      9 6,333      5,513 (87.1%)             27 14 (51.9%)      
-# 2 Nostoc sp PCC 7120 FACHB 418                       13 5,429      4,960 (91.4%)             35 20 (57.1%)      
-# 3 Prochlorococcus marinus str MIT 9312                9 2,006      1,904 (94.9%)            249 136 (54.6%)     
-# 4 Prochlorococcus marinus str NATL2A                 73 2,206      2,206 (100%)             157 157 (100%)      
-# 5 Synechococcus elongatus PCC 7942 FACHB 805        228 2,663      2,650 (99.5%)             41 39 (95.1%)      
-# 6 Synechocystis sp PCC 6714                           6 3,565      3,073 (86.2%)             13 4 (30.8%)       
-# 7 Synechocystis sp PCC 6803                          79 3,216      3,156 (98.1%)             12 11 (91.7%)      
-# 8 Thermosynechococcus vestitus BP 1                  26 2,520      2,382 (94.5%)              9 6 (66.7%)       
-# 9 Trichodesmium erythraeum IMS101                    15 4,498      3,974 (88.4%)             33 24 (72.7%)    
+  pivot_longer(c(total, expressed)) |>
+  unite('name', c(type, name), sep = '.') |>
+  pivot_wider() |>
+  select(
+    species, libs.total,
+    gene.total, gene.expressed,
+    Rfam.total, Rfam.expressed,
+    CRS.total, CRS.expressed
+  ) |>
+# species                                    libs.total gene.total gene.expressed Rfam.total Rfam.expressed CRS.total CRS.expressed
+# 1 Acaryochloris marina MBIC11017                      9 6,333      5,518 (87.1%)  16         12 (75%)       27        14 (51.9%)   
+# 2 Nostoc sp PCC 7120 FACHB 418                       13 5,429      4,966 (91.5%)  28         19 (67.9%)     35        20 (57.1%)   
+# 3 Prochlorococcus marinus str MIT 9312                9 2,006      1,912 (95.3%)  20         16 (80%)       249       137 (55%)    
+# 4 Prochlorococcus marinus str NATL2A                 73 2,206      2,206 (100%)   15         15 (100%)      157       157 (100%)   
+# 5 Synechococcus elongatus PCC 7942 FACHB 805        228 2,663      2,650 (99.5%)  14         11 (78.6%)     41        39 (95.1%)   
+# 6 Synechocystis sp PCC 6714                           6 3,565      3,089 (86.6%)  18         14 (77.8%)     13        4 (30.8%)    
+# 7 Synechocystis sp PCC 6803                          79 3,216      3,156 (98.1%)  20         18 (90%)       12        11 (91.7%)   
+# 8 Thermosynechococcus vestitus BP 1                  26 2,520      2,398 (95.2%)  16         14 (87.5%)     9         6 (66.7%)    
+# 9 Trichodesmium erythraeum IMS101                    15 4,498      3,973 (88.3%)  17         14 (82.4%)     33        25 (75.8%)   
   knitr::kable('latex')
 
 ################################################################################
 ################################################################################
 
 overall |>
-  # filter(method == 'normalized counts / gene length') |>
-  filter(method == 'RPKM') |>
-  # filter(ratio >= .5) |>
   filter(expressed.libs >= 3) |>
-  mutate(is.motif = str_detect(gene, 'fna.motif')) |>
-  group_by(genome) |>
-  summarize(
-    expressed.genes = n(),
-    expressed.motifs = sum(is.motif)
-  ) |>
-  left_join(genes.total, 'genome') |>
-  mutate(
-    total.genes = total.features - total.motifs,
-    frac.genes = expressed.genes / total.genes,
-    frac.motifs = expressed.motifs / total.motifs,
-    lab = sprintf(
-      '%s\n%s of %s motif positions',
-      str_remove(genome, '_txid.*'),
-      expressed.motifs, total.motifs
-    )
-  ) |>
-  ggplot(aes(frac.genes, frac.motifs, color = genome, label = lab)) +
-  geom_point() +
-  ggrepel::geom_text_repel(size = 5) +
-  xlab('Fraction of genes detected as expressed') +
-  ylab('Fraction of motifs detected as expressed') +
-  theme_pubr(18) +
-  theme(legend.position = 'hide') -> p1
-
-overall |>
-  # filter(method == 'normalized counts / gene length') |>
-  filter(method == 'RPKM') |>
-  # filter(ratio >= .5) |>
-  filter(expressed.libs >= 3) |>
-  mutate(is.motif = str_detect(gene, 'fna.motif')) |>
-  group_by(genome, libs.total) |>
-  summarize(
-    expressed.genes = n(),
-    expressed.motifs = sum(is.motif)
-  ) |>
-  left_join(genes.total, 'genome') |>
-  mutate(
-    total.genes = total.features - total.motifs,
-    frac.genes = expressed.genes / total.genes,
-    frac.motifs = expressed.motifs / total.motifs,
-    lab = sprintf(
-      '%s\n%s of %s motif positions',
-      str_remove(genome, '_txid.*'),
-      expressed.motifs, total.motifs
-    )
-  ) |>
-  ggplot(aes(frac.genes, libs.total, color = genome, label = lab)) +
-  geom_point() +
-  ggrepel::geom_text_repel(size = 5) +
-  scale_y_log10() +
-  annotation_logticks(sides = 'l') +
-  xlab('Fraction of genes detected as expressed') +
-  ylab('# RNA-seq libraries') +
-  theme_pubr(18) +
-  theme(legend.position = 'hide') -> p2
-
-
-p1 + p2
-    
-ggsave('4-expressed.jpeg', width = 20, height = 10)
-           
-    
-################################################################################
-
-overall |>
-  # filter(method == 'normalized counts / gene length') |>
-  filter(method == 'RPKM') |>
-  # filter(ratio >= .5) |>
-  filter(expressed.libs >= 3) |>
-  mutate(is.motif = str_detect(gene, 'fna.motif')) |>
-  filter(is.motif) |>
-  mutate(motif = str_remove(gene, ';pos.*')) |>
-  select(motif, genome) |>
+  left_join(meta) |>
+  mutate(gene = str_remove(gene, ';.*')) |>
+  select(gene, type, genome) |>
   unique() |>
-  dplyr::count(motif) |>
+  dplyr::count(gene, type) |>
   arrange(desc(n)) |>
   dplyr::rename(expressed.in.genomes = n) -> xs
-
 
 ################################################################################
 
@@ -443,9 +338,8 @@ overall |>
   summarize(pathways = str_c(pathway, collapse = '; ')) -> xs.meta
 
 xs |>
-  mutate(term = str_remove(motif, '_.*')) |>
-  left_join(xs.meta, 'term') -> xs2
-View(xs2)
+  mutate(term = str_remove(gene, '_.*')) |>
+  inner_join(xs.meta, 'term') -> xs2
 
 write_tsv(xs2, '4-maybe-interest.tsv')
 
