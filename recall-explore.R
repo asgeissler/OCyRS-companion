@@ -154,7 +154,7 @@ p3 <-
     # Add a second axis and specify its features
     sec.axis = sec_axis(~ . / 55, name=" Rate of family recall")
   ) +
-  xlab('Minimal no. CMsearch hits (same-strand overlap reduced)') +
+  xlab('Minimal no. CMsearch hits') +
   scale_x_log10(labels = scales::comma) +
   annotation_logticks(side = 'b') +
   theme_bw(18) +
