@@ -131,6 +131,17 @@ p2 <-
   annotation_logticks(side = 'b') +
   theme_bw(18)
 
+p2b <-
+  ref.overview |>
+  filter(type == 'Rfam') |>
+  mutate(r = overlapred / nredhits) |>
+  ggplot(aes(species, overlapred)) +
+  geom_point() +
+  ylab('CMsearch hits with motif overlap\n(sense and/or anti-sense)') +
+  scale_x_log10(labels = scales::comma) +
+  annotation_logticks(side = 'b') +
+  theme_bw(18)
+
 p3 <-
   ref.overview |>
   filter(type == 'Rfam') |>
@@ -168,7 +179,7 @@ p3 <-
 
 library(patchwork)
 
-(p1 + p2) / p3 +
+(p1 + p2 + p2b) / p3 +
   plot_annotation(tag_levels = 'A')
 
 ggsave('recall-explore.jpeg', width = 12, height = 10)

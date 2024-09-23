@@ -44,7 +44,7 @@ novel.red <-
   read_tsv()
 
 novel.ta <-
-  '../Public-RNAseq/4-expression-ratios.tsv' |>
+  '../Public-RNAseq/5-expression-ratios.tsv' |>
   read_tsv()
 
 
@@ -90,7 +90,7 @@ list(
     anti_join(novel.red, c('motif' = 'redundant')) |>
     semi_join(
       novel.ta |>
-        filter(expressed.libs >= 3, method == 'RPKM') |>
+        filter(expressed.libs >= 3) |>
         mutate(motif = str_remove(gene, ';pos.*$')),
       'motif'
     ) |>
@@ -101,7 +101,7 @@ list(
     semi_join(
       novel.ta |>
         filter(genome == 'Nostoc.sp.PCC.7120.FACHB.418_txid103690_SAMD00061094_Nostocales') |>
-        filter(expressed.libs >= 3, method == 'RPKM') |>
+        filter(expressed.libs >= 3) |>
         mutate(motif = str_remove(gene, ';pos.*$')),
       'motif'
     ) |>
