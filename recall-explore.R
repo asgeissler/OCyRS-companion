@@ -182,7 +182,7 @@ library(patchwork)
 (p1 + p2 + p2b) / p3 +
   plot_annotation(tag_levels = 'A')
 
-ggsave('recall-explore.jpeg', width = 12, height = 10)
+ggsave('recall-explore.jpeg', width = 15, height = 10)
 
 
 ################################################################################
@@ -203,3 +203,33 @@ ggsave('recall-explore.jpeg', width = 12, height = 10)
 
 # re-run above; did not really change anything
 # -> not enough hits for CMfinder to detect
+
+################################################################################
+# Rfam recall
+
+
+'../OCyRS-pipeline/data/J_novel/references_inside-of_intergenic_regions.tsv.gz' |>
+  read_tsv() |>
+  filter(type == 'Rfam') |>
+  semi_join(
+    ref.overview |>
+      filter(species >= 10),
+    'name'
+  ) |>
+  select(name, rfam) |>
+  unique() |>
+  left_join(
+    '../OCyRS-pipeline/data/J_novel/reference-motif-overlap-stats.tsv' |>
+      read_tsv() |>
+      select(name = Family, Type),
+    'name'
+  ) |>
+  count(Type)
+# Type         n
+# 1 CRISPR       4
+# 2 Cis-reg      8
+# 3 other        6
+# 4 rRNA         3
+# 5 ribozyme     1
+# 6 sRNA         7
+# 7 tRNA         1
